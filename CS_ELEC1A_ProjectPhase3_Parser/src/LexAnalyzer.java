@@ -136,14 +136,15 @@ public class LexAnalyzer {
 	}
 	
 	private static void displayW(Scanner sc, int i) {
-		out+="DISPLAY WINNER\n";		
+		out+="DISPLAY WINNER\n";
+		gameBlock(sc,i);
 	}
 
 	private static void check(Scanner sc, int i) {
 		String check=sc.nextLine();
 		String[] checkA=check.split(" ");
 		if((check.contains("WHITE") || check.contains("BLACK")) && (check.contains("RECTANGLE") || check.contains("LINE"))){
-			out+="PASS "+ checkA[1]+" "+checkA[2]+"\n";
+			out+="CHECK "+ checkA[1]+" "+checkA[2]+"\n";
 			gameBlock(sc, i);
 		}else{
 			System.out.println(i+"		ERROR\n --EOF--");
@@ -156,7 +157,7 @@ public class LexAnalyzer {
 		String count=sc.nextLine();
 		String[] countA=count.split(" ");
 		if((count.contains("WHITE")|| count.contains("BLACK"))){
-			out+="PASS "+ countA[1]+"\n";
+			out+="COUNT "+ countA[1]+"\n";
 			gameBlock(sc, i);
 		}else{
 			System.out.println(i+"		ERROR\n --EOF--");
@@ -166,7 +167,6 @@ public class LexAnalyzer {
 
 	private static void display(Scanner sc, int i) {
 		out+="DRAW BOARD\n";
-		sc.nextLine();
 		gameBlock(sc, i);
 		
 	}
@@ -187,7 +187,7 @@ public class LexAnalyzer {
 		String pass=sc.nextLine();
 		String[] passA=pass.split(" ");
 		if((pass.contains("WHITE")|| pass.contains("BLACK"))){
-			out+="PASS "+ passA[1]+"\n";
+			out+="PASSED "+ passA[1]+"\n";
 			gameBlock(sc, i);
 		}else{
 			System.out.println(i+"		ERROR\n --EOF--");
