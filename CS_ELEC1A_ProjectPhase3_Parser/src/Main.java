@@ -160,33 +160,33 @@ public class Main{
 				else if(next.equals("PASSED")){
 					String color=sc.next();
 					System.out.println("			-----------------		|");
-					System.out.println("			|			|");
-					System.out.println("			STMT		|");
-					System.out.println("			|		|");
-					System.out.println("	-----------------		|");
-					System.out.println("	|		|		");
-					System.out.println("	PASS		"+color+"		|");
+					System.out.println("			|				|");
+					System.out.println("			STMT				|");
+					System.out.println("			|				|");
+					System.out.println("	-----------------				|");
+					System.out.println("	|		|				|");
+					System.out.println("	PASS		"+color+"				END");
 					i++;
 				}
 				else if(next.equals("COUNT")){
 					System.out.println("			-----------------		|");
-					System.out.println("			|			|");
-					System.out.println("			STMT		|");
+					System.out.println("			|				|");
+					System.out.println("			STMT				|");
 					String color=sc.next();
-					System.out.println("			|		|");
-					System.out.println("	-----------------		|");
+					System.out.println("			|				|");
+					System.out.println("	-----------------				|");
 					System.out.println("	|	|	|				|");
-					System.out.println("	COUNT	"+color+"	SHAPE				|");
+					System.out.println("	COUNT	"+color+"	SHAPE				END");
 					i++;		
 				}
 				else if(next.equals("DRAW")){
 					System.out.println("			-----------------		|");
 					System.out.println("			|				|");
 					System.out.println("			STMT				|");
-					System.out.println("			|			|");
-					System.out.println("	-----------------		|");
+					System.out.println("			|				|");
+					System.out.println("	-----------------				|");
 					System.out.println("	|		|				|");
-					System.out.println("	DISPLAY		"+"BOARD");
+					System.out.println("	DISPLAY		"+"BOARD"+"				END");
 					i++;
 				}
 				else if(next.equals("DISPLAY")){
@@ -200,14 +200,14 @@ public class Main{
 					i++;
 				}
 				else if(next.equals("CHECK")){
-					System.out.println("			-----------------");
-					System.out.println("			|		");
-					System.out.println("			STMT");
+					System.out.println("			-----------------		|");
+					System.out.println("			|				|");
+					System.out.println("			STMT				|");
 					String color=sc.next();
-					System.out.println("			|");
-					System.out.println("	-----------------");
-					System.out.println("	|	|	|		");
-					System.out.println("	CHECK	"+color+"	SHAPE		");
+					System.out.println("			|				|");
+					System.out.println("	-----------------				|");
+					System.out.println("	|	|	|				|");
+					System.out.println("	CHECK	"+color+"	SHAPE				END");
 					i++;
 				}
 			}
