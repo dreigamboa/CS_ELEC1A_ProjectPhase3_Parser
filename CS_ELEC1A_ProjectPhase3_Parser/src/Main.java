@@ -136,10 +136,10 @@ public class Main{
 					System.out.println("			-----------------		|");
 					System.out.println("			|		|		|");
 					System.out.println("			STMT		STMTS		|");
-					System.out.println("			|		|		|");
-					System.out.println("	-----------------		|		|");
-					System.out.println("	|		|		|		|");
-					System.out.println("	DISPLAY	"+"	WINNER		|		|");
+					System.out.println("			|				|");
+					System.out.println("	-----------------				|");
+					System.out.println("	|		|				|");
+					System.out.println("	DISPLAY	"+"	WINNER				|");
 					i++;
 				}
 				else if(next.equals("CHECK")){
@@ -235,7 +235,6 @@ public class Main{
 	public static boolean ProblemSimulation(Scanner sc){
 		System.out.println("PROBLEM SIMULATION\n");
 		String next=sc.next();
-		int i=0;
 		System.out.println("E");
 		System.out.println("|");
 		System.out.println("T");
@@ -257,16 +256,20 @@ public class Main{
 				return true;
 			}
 			if(next.equals("MULT")){
+				int j;
 				System.out.println("|	|	|	|	|	|	|");
 				System.out.println("T	+	T	+	T	=	F");
 				System.out.println("-------		-------		-------		|");
 				System.out.println("|  |  |		|  |  |		|  |  |		VARIABLE");
-				for(int j=0;j<=2;j++){
+				for(j=0;j<=2;j++){
 					System.out.print("F  *  F		");
+				}
+				System.out.println("\n|     |		|     |		|     |		");
+				for(j=2;j>=0;j--){
+					System.out.print("INT   INT	");
 				}
 				return true;
 			}
-			++i;
 		}
 		return false;
 	}

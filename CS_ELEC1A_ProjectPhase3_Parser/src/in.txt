@@ -1,1 +1,1 @@
-quiz * qper + sw_hw * sper + project * pper + exam * eper = grade
+( x1 + x2 + x3 ) = sum / n
