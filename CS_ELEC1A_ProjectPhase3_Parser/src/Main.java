@@ -16,12 +16,11 @@ public class Main{
 			count++;
 		}
 		counter.close();
-		System.out.println(count);
 		String s=sc.next();
 		if(s.contains("GAME")){
-			GameSimulation(sc);
-		}else if(s.contains("INT")){
-			System.out.println("PROBLEM SIMULATION");
+			if(GameSimulation(sc));
+		}else if(s.contains("VARIABLE")||s.contains("INT")){
+			if(ProblemSimulation(sc));
 		}
 	}
 	
@@ -33,6 +32,11 @@ public class Main{
 		int i=0;
 		while(sc.hasNext()){
 			String next=sc.next();
+			if(next.equals("Game")){
+				System.out.println("							|");
+				System.out.println("							|");
+				
+			}
 			if(next.equals("MOVE") && i==0){
 				String color=sc.next();
 				System.out.println("		|		|			|");
@@ -80,6 +84,11 @@ public class Main{
 				i++;
 			}
 			else if(i<count-2){
+				if(next.equals("Game")){
+					System.out.println("							|");
+					System.out.println("							|");
+					
+				}
 				if(next.equals("MOVE")){
 					System.out.println("			-----------------		|");
 					System.out.println("			|		|		|");
@@ -154,7 +163,7 @@ public class Main{
 					System.out.println("			|		|");
 					System.out.println("	-----------------		|");
 					System.out.println("	|	|	|				|");
-					System.out.println("	MOVE	"+color+"	CELL		END");
+					System.out.println("	MOVE	"+color+"	CELL		|");
 					i++;
 				}
 				else if(next.equals("PASSED")){
@@ -165,7 +174,7 @@ public class Main{
 					System.out.println("			|				|");
 					System.out.println("	-----------------				|");
 					System.out.println("	|		|				|");
-					System.out.println("	PASS		"+color+"				END");
+					System.out.println("	PASS		"+color+"				|");
 					i++;
 				}
 				else if(next.equals("COUNT")){
@@ -176,7 +185,7 @@ public class Main{
 					System.out.println("			|				|");
 					System.out.println("	-----------------				|");
 					System.out.println("	|	|	|				|");
-					System.out.println("	COUNT	"+color+"	SHAPE				END");
+					System.out.println("	COUNT	"+color+"	SHAPE				|");
 					i++;		
 				}
 				else if(next.equals("DRAW")){
@@ -186,7 +195,7 @@ public class Main{
 					System.out.println("			|				|");
 					System.out.println("	-----------------				|");
 					System.out.println("	|		|				|");
-					System.out.println("	DISPLAY		"+"BOARD"+"				END");
+					System.out.println("	DISPLAY		"+"BOARD"+"				|");
 					i++;
 				}
 				else if(next.equals("DISPLAY")){
@@ -207,15 +216,58 @@ public class Main{
 					System.out.println("			|				|");
 					System.out.println("	-----------------				|");
 					System.out.println("	|	|	|				|");
-					System.out.println("	CHECK	"+color+"	SHAPE				END");
+					System.out.println("	CHECK	"+color+"	SHAPE				|");
 					i++;
+				}else if(next.equals("Game")){
+					System.out.println("							|");
+					System.out.println("							END");
+					System.exit(0);
+					
 				}
+			}else{
+				System.out.println("Program not terminated.");
+				return false;
 			}
 		}
-		return false;
+		return true;
 	}
 	
 	public static boolean ProblemSimulation(Scanner sc){
+		System.out.println("PROBLEM SIMULATION\n");
+		String next=sc.next();
+		int i=0;
+		System.out.println("E");
+		System.out.println("|");
+		System.out.println("T");
+		System.out.println("|");
+		System.out.println("-------------------------------------------------");
+		while(sc.hasNext()){
+			//System.out.println(next);
+			if(next.equals("EXP")){
+				System.out.println("|	|	|	|	|");
+				System.out.print("F	^");
+				while(sc.hasNext()){
+					if(sc.next().equals("VARIABLE")){
+						System.out.print("	F");
+					}
+					if(sc.next().equals("EQUALS")){
+						System.out.print("	=");
+					}
+				}
+				return true;
+			}
+			if(next.equals("MULT")){
+				System.out.println("|	|	|	|	|	|	|");
+				System.out.println("T	+	T	+	T	=	F");
+				System.out.println("-------		-------		-------		|");
+				System.out.println("|  |  |		|  |  |		|  |  |		VARIABLE");
+				for(int j=0;j<=2;j++){
+					System.out.print("F  *  F		");
+				}
+				return true;
+			}
+			++i;
+		}
 		return false;
 	}
 

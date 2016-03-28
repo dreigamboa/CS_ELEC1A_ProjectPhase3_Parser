@@ -57,24 +57,21 @@ public class LexAnalyzer {
 				case "<=":next="LESSEQUAL ";out+=next+" ";break;
 				case ">=":next="GREATEREQUAL ";out+=next+" ";break;
 				case "==":next="EQUAL ";out+=next+" ";break;
-				case "(":if(next.contains(")")){
-					next="RP";out+=next+" ";break;
-				}else{System.out.print("ERROR");System.exit(0);}
-				case ")":if(next.contains(")")){
-					next="LP";out+=next+" ";break;
-				}
-				else{
-					switch(next){
-					case"IF":next="IF ";out+=next+" ";break;
-					case"ELSE":next="ELSE ";out+=next+" ";break;
-					case"FOR":next="FOR ";out+=next+" ";break;
-					case"WHILE":next="WHILE ";out+=next+" ";break;
-					default:System.out.print("ERROR");System.exit(0);
-					}
-				}
+				case "(":next="LP";out+=next+" ";break;				
+				case ")":next="RP";out+=next+" ";break;
+
 			}
 			}else if(isLetter(next)){
-				next="VARIABLE ";out+=next+" ";
+				next="VARIABLE";out+=next+" ";
+			}
+			else{
+				switch(next){
+				case"IF":next="IF ";out+=next+" ";break;
+				case"ELSE":next="ELSE ";out+=next+" ";break;
+				case"FOR":next="FOR ";out+=next+" ";break;
+				case"WHILE":next="WHILE ";out+=next+" ";break;
+				default:System.out.print("ERROR");System.exit(0);
+				}
 			}
 			while(sc.hasNext()){
 				next=sc.next();
@@ -92,24 +89,19 @@ public class LexAnalyzer {
 					case "<=":next="LESSEQUAL ";out+=next+" ";break;
 					case ">=":next="GREATEREQUAL ";out+=next+" ";break;
 					case "==":next="EQUAL ";out+=next+" ";break;
-					case "(":if(next.contains(")")){
-						next="RP";out+=next+" ";break;
-					}else{System.out.print("ERROR");System.exit(0);}
-					case ")":if(next.contains(")")){
-						next="LP";out+=next+" ";break;
-					}
-					else{
-						switch(next){
-						case"IF":next="IF ";out+=next+" ";break;
-						case"ELSE":next="ELSE ";out+=next+" ";break;
-						case"FOR":next="FOR ";out+=next+" ";break;
-						case"WHILE":next="WHILE ";out+=next+" ";break;
-						default:System.out.print("ERROR");System.exit(0);
-						}
-					}
+					case "(":next="LP";out+=next+" ";break;
+					case ")":next="RP";out+=next+" ";break;
 				}
 				}else if(isLetter(next)){
-					next="VARIABLE ";out+=next+" ";break;
+					next="VARIABLE";out+=next+" ";break;
+				}else{
+					switch(next){
+					case"IF":next="IF ";out+=next+" ";break;
+					case"ELSE":next="ELSE ";out+=next+" ";break;
+					case"FOR":next="FOR ";out+=next+" ";break;
+					case"WHILE":next="WHILE ";out+=next+" ";break;
+					default:System.out.print("ERROR");System.exit(0);
+					}
 				}
 			}
 		}
@@ -129,7 +121,7 @@ public class LexAnalyzer {
 			case "DISPLAY_BOARD": display(sc, i);break;
 			case "DISPLAY_WINNER": displayW(sc, i);break;
 			case "CHECK": check(sc,i);break;
-			case "END_GAME": System.out.println(i+"		Game Ended");System.out.println(" --EOF--");;break;
+			case "END_GAME": out+="Game Ended";System.out.println(" --EOF--");;break;
 			default: System.out.println(i+"		ERROR\n --EOF--"); System.exit(0);
 			}
 		}
