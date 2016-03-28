@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Main{
@@ -19,8 +18,8 @@ public class Main{
 		String s=sc.next();
 		if(s.contains("GAME")){
 			if(GameSimulation(sc));
-		}else if(s.contains("VARIABLE")||s.contains("INT")){
-			if(ProblemSimulation(sc));
+		}else{
+			if(ProblemSimulation(sc,s));
 		}
 	}
 	
@@ -232,30 +231,62 @@ public class Main{
 		return true;
 	}
 	
-	public static boolean ProblemSimulation(Scanner sc){
+	public static boolean ProblemSimulation(Scanner sc, String s){
 		System.out.println("PROBLEM SIMULATION\n");
-		String next=sc.next();
 		System.out.println("E");
 		System.out.println("|");
 		System.out.println("T");
 		System.out.println("|");
 		System.out.println("-------------------------------------------------");
 		while(sc.hasNext()){
-			//System.out.println(next);
-			if(next.equals("EXP")){
+			if(s.equals("EXP")){
 				System.out.println("|	|	|	|	|");
 				System.out.print("F	^");
 				while(sc.hasNext()){
 					if(sc.next().equals("VARIABLE")){
 						System.out.print("	F");
-					}
-					if(sc.next().equals("EQUALS")){
+					}if(sc.next().equals("EQUALS")){
 						System.out.print("	=");
 					}
 				}
-				return true;
+				System.out.println("\n   |     |     |        |");
 			}
-			if(next.equals("MULT")){
+			if(s.equals("LP")){
+				boolean flag=false;
+				boolean ls=true;
+				System.out.println("	|		|		|	");
+				System.out.println("	T		/		F");
+				System.out.println("	|				|");
+				System.out.println("-------------------------		INT");
+				System.out.println("|  |  |  |  |  |  |  |  |");
+				System.out.print("LP ");
+				while(sc.hasNext()){
+					s=sc.next();
+					if(s.equals("VARIABLE")&&ls==true){
+						System.out.print("F  ");
+					}
+					if(s.equals("ADD")&&ls==true){
+						System.out.print("+  ");
+					}
+					if(s.equals("RP")&&ls==true){
+						flag=true;
+						System.out.print("RP ");
+					}
+					if(s.equals("EQUALS")&&ls==true){
+						ls=false;
+						System.out.print("=  F");
+					}
+				}
+				if(flag==true&&ls==false){
+					System.out.println("\n   |     |     |        |");
+					System.out.println("   INT   INT   INT      INT");
+					return true;
+				}else{
+					System.out.println("\nERROR: No RP detected.");
+					System.exit(0);
+				}
+			}
+			if(s.equals("MULT")){
 				int j;
 				System.out.println("|	|	|	|	|	|	|");
 				System.out.println("T	+	T	+	T	=	F");
@@ -268,8 +299,8 @@ public class Main{
 				for(j=2;j>=0;j--){
 					System.out.print("INT   INT	");
 				}
-				return true;
 			}
+			s=sc.next();
 		}
 		return false;
 	}
